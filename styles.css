@@ -1,0 +1,306 @@
+/* Basic styles, you can customize as needed */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  main {
+    display: flex;
+    padding-bottom: 50px; /* Make sure there is space for the footer */
+  }
+
+  main {
+    min-height: calc(100% - 120px); /* Adjust based on your header and footer height */
+  }
+  
+  aside {
+    background-color: #f4f4f4;
+    min-width: 200px;
+    padding: 20px;
+    flex-basis: 200px; 
+  }
+/* Make the content section flex to fill the space between the sidebar and results */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column; /* Stack the form items vertically */
+  }
+  #gameForm{
+    border: 1px solid black;
+    padding:20px;
+  }
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-menu a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .sidebar-menu a.active {
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+
+  /* Style for the results section */
+.results {
+    flex-basis: 50%; /* Adjust the width as needed */
+    padding: 20px;
+    border-left: 1px solid #ccc; /* Add border if needed */
+  }
+  
+  
+  /* Hide arrows on number input */
+  input[type="text"]::-webkit-outer-spin-button,
+  input[type="text"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="text"] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Form row styling */
+  .form-row {
+    margin-bottom: 20px;
+  }
+  
+  /* Checkbox label */
+  #languageCheckboxes label {
+    display: block;
+  }
+  
+  /* Tag container */
+  .tag-container {
+    position: relative;
+  }
+  
+  .selected-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .selected-features .tag {
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 15px;
+  }
+  
+  /* Feature options */
+  .feature-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 2px);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .feature-options.active {
+    display: block;
+  }
+  
+  .feature-option {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .feature-option:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Calculate Metrics button styling */
+  #calculateMetrics {
+    display: block;
+    margin-left: auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Cursor style for game feature tags */
+  .tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin-right: 5px;
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .tag:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+  }
+  /* Tag container for game tags */
+.tag-container {
+    position: relative;
+  }
+  
+  .selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .selected-tags .tag {
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 15px;
+  }
+  
+  /* Tag options */
+  .tag-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 2px);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .tag-options.active {
+    display: block;
+  }
+  
+  .tag-option {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .tag-option:hover {
+    background-color: #f4f4f4;
+  }
+/* Add global box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  .metric-container {
+    display: block; /* or flex if you prefer the label to be on the same line */
+    margin-bottom: 1rem; /* Gives space below each metric container */
+  }
+  
+  .metric-value {
+    font-size: 3rem; /* Large font size for the metric value */
+    font-weight: bold;
+    line-height: 1; /* Keeps lines closer together */
+    display: block; /* Makes the metric value its own line */
+  }
+  
+  .metric-label {
+    display: block; /* Makes the label its own line */
+    font-weight: normal;
+    font-size: 1rem; /* Smaller font size for the label */
+  }
+  
+  img.histogram {
+    display: block; /* Ensures the image does not inline */
+    max-width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    margin-top: 2rem; /* Space above the image */
+  }
+  
+  /* Additional styles for the section titles */
+  .section-title {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  #predictionResults {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family:'Arial',sans-serif;
+}
+
+.result-metric {
+    background-color: #f4f4f4;
+    border-left: 5px solid #ccc;
+    padding: 30px;
+}
+
+.metric-box {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.metric-label {
+    font-size: 18px;
+    color: #666;
+}
+
+.quantile {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.histogram {
+    width: 100%;
+    height: auto;
+}
+.metrics {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.box-reviews {
+    float:left;
+    margin-right: 4%;
+}

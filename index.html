@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Predictor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Game Predictor</h1>
+  </header>
+  
+  <main>
+    <aside>
+      <ul class="sidebar-menu">
+        <li><a href="#" class="active">Predictor</a></li>
+        <li><a href="notebook.html">Python Notebook</a></li>
+        <li><a href="#">Report</a></li>
+      </ul>
+    </aside>
+    
+    <section class="content">
+        <h1>Game Form</h1>
+        <p>Fill in the main characteristics on the game you plan to make, it's advisable to check the "Report" section to understand how the model has been trained and how to interpret the results</p>
+        <form id="gameForm">
+          <div class="form-row">
+            <label for="gamePrice">Game Price:</label>
+            <input type="number" id="gamePrice" name="gamePrice" min="0" step="0.01" placeholder="Enter game price (USD)" required autocomplete="off">
+            <p>*The model has been trained on games with prices less than 14 USD</p>
+          </div>
+
+        <div class="form-row">
+          <label>Supported Languages:</label>
+          <div id="languageCheckboxes">
+            <label><input type="checkbox" name="supportedLanguages" value="english" checked> English</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="German"> German</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="French"> French</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Russian"> Russian</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Spanish___Spain"> Spanish - Spain</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Simplified_Chinese"> Simplified Chinese</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Japanese"> Japanese</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Portuguese___Brazil"> Portuguese - Brazil</label><br>
+            <label><input type="checkbox" name="supportedLanguages" value="Korean"> Korean</label><br>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="gameFeatures">Game Features:</label>
+          <div class="tag-container">
+            <div id="selectedFeatures" class="selected-features"></div>
+            <input type="text" id="gameFeatures" name="gameFeatures" placeholder="Type to select game features">
+            <div id="featureOptions" class="feature-options"></div>
+          </div>
+        </div>
+
+        <div class="form-row">
+            <label for="gameTags">Game Tags (max 10):</label>
+            <div class="tag-container">
+              <div id="selectedTags" class="selected-tags"></div>
+              <input type="text" id="gameTags" name="gameTags" placeholder="Type to search game tags">
+              <div id="tagOptions" class="tag-options"></div>
+            </div>
+          </div>
+
+        <div class="form-row">
+          <button type="submit" id="calculateMetrics">Calculate potential metrics</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- New Results Section -->
+    <section class="results" id="predictionResults">
+        <!-- Results will be populated here after form submission -->
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>Credits to [Your Name]</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="predictor.js"></script>
+</body>
+</html>
