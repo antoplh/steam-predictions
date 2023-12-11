@@ -192,7 +192,7 @@ function displayResults(prediction, cluster) {
             <div class="metric-value">${prediction}</div>
             <div class="metric-label">reviews</div>
             </div>
-            <div class="quantile">is the prediction output for the amount of reviews your game might get on a platform like Steam. <strong>The amount of reviews for a game like this is in the <span style="color:${quantileColor};">${quantileText}</span></strong></div>
+            <div class="quantile">is the prediction output for the amount of reviews your game might get on a platform such as Steam. <strong>The amount of reviews for a game like this is in the <span style="color:${quantileColor};">${quantileText}</span></strong></div>
         </div>
         <p>Based on this prediction, these are the estimated downloads and revenue</p>
             <div class="metrics">
