@@ -200,7 +200,7 @@ function displayResults(prediction, cluster) {
             <div class="metric-value">${prediction * 32}</div>
             <div class="metric-label">downloads</div> </div>
             <div class="metric-box">
-            <div class="metric-value">${(prediction * 32 * 0.38).toFixed(2)} USD</div>
+            <div class="metric-value">${(prediction * 35 * 0.38).toFixed(2)} USD</div>
             <div class="metric-label">on revenue</div></div> </div>
 
         <p>Games similar to yours have on average of <strong>${positiveReviewsPercentage}% positive reviews</strong>. Below is the distribution of positive reviews for games in this cluster.
