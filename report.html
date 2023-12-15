@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Predictor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Game Predictor</h1>
+    <p>Calculate metrics for estimated review number, downloads, revenue and cluster positive reviews distribution</p>
+
+  </header>
+  
+  <main>
+    <aside>
+      <ul class="sidebar-menu">
+        <li><a href="index.html">Predictor</a></li>
+        <li><a href="#" class="active">Report</a></li>
+        <li><a href="notebook.html">Python Notebook</a></li>
+      </ul>
+    </aside>
+    <section style ="padding:5%; width:70%;text-align: justify;">
+    <!-- REPORT HTML CODE START-->
+    <h1 style="font-size: 50px; text-align: left;">Project: Steam Game Analytics Tool</h1>
+    <p>For additional technical understanding of the development, refer to the <a href="notebook.html">Python Notebook</a></p>
+    <h2>Data Source and Usage</h2>
+    <p>
+        This tool uses a <a href="https://www.kaggle.com/datasets/nikatomashvili/steam-games-dataset">dataset</a> from Steam, featuring over 83,000 games and diverse metadata like titles, publishers, genres, and release dates. The actual model and analysis has been done only on <strong>games up until 2022</strong>. IQR method was used to remove outliers for total amount of reviews and price. This resulted in the predictive model only considering games with a maximum of <strong>279 reviews</strong> and a <strong>maximum price of 13.57 USD</strong>. The distributions of how these variables looked before and after applying IQR are shown below.</p>
+        <br>
+        <img style="width:100%" src="images/total_user_reviews_iqr.png">
+        <p><i><strong>Figure 1: </strong>Distribution transformation of Total User Reviews before and after applying IQR</i></p>
+        <br>
+        <img style="width:100%" src="images/price_iqr.png">
+        <p><i><strong>Figure 2: </strong>Distribution transformation of Price before and after applying IQR</i></p>
+    </p>
+
+    <h2>Predicted Multiple Linear Regression Model</h2>
+    <p>
+        The results for the amount of predicted reviews are based on the Multiple Linear Regression trained with the data as outlined above. The evaluation metrics of the model provided essential insights, but they also highlight important limitations:
+        <ul>
+            <li><strong>R-squared (0.2750):</strong> Indicates that around 28% of the variance in user reviews is explained by the model, which is significant given the data's complexity as it doesn't consider any other influential variables such as marketing.</li>
+            <li><strong>MAPE (361.34%):</strong> Shows substantial variability in prediction errors, suggesting that predictions might have a wide range of accuracy.</li>
+            <li><strong>RMSE (47.68):</strong> Highlights the presence of outliers and potential large deviations in predictions.</li>
+        </ul>
+        It's important for users to understand these limitations and use the model's predictions as a guide, rather than a definitive forecast. Creative judgment and market understanding should complement these insights.
+    </p>
+
+    <h2>Estimated downloads and Revenue</h2>
+    <p><strong>Estimated downloads</strong> number is calculated by multiplying the number of predicted user reviews by 35. This ratio is based on <a href="https://newsletter.gamediscover.co/p/how-that-game-sold-on-steam-using">Simon Carless' analysis</a>, stating that the estimated owners of the game based on the number of reviews is a ratio that is closer to 30 in recent years</p>
+    <p>
+        <strong>Revenue</strong> is the estimated downloads of the game multiplied by a factor of 0.38. This number is based on <a href="https://www.gamedeveloper.com/business/genre-viability-on-steam-and-other-trends---an-analysis-using-review-count">Weinbaum's calculation</a> of multiplying VAT (0.93),returns (0.92),average regional price (0.8), average discount (0.8) and platform cut (0.7).
+    </p>
+    <h2>K-Means Clustering</h2>
+
+    <p>
+        K-Means Clustering is used to offer deeper insights by comparing games to similar titles. This process involves determining the optimal number of clusters, then analyzing the distribution of positive reviews within each cluster. Four clusters were formed, and each hold different distributions for the percentage of positive reviews. Users can use this as a reference to where a game belongs to.
+    </p>
+    <img src="images/clusters.png" style="width:100%">
+    <p><i><strong>Figure 3: </strong>The four clusters a game can belong to</i></p>
+
+    <h2>Considerations</h2>
+    <p>
+        When using this tool, please consider the following:
+        <ul>
+            <li><strong>Model Limitations:</strong> The predictions are based on historical data and might not fully capture future market trends or account for unique aspects of your game.</li>
+            <br>
+            <li><strong>Ethical Use:</strong> Rely on the tool for insights but maintain creative freedom. Avoid making decisions solely based on predictive outcomes to preserve the diversity and innovation in indie gaming.</li>
+            <br>
+            <li><strong>Complementary Tool:</strong> Use our analytics as one of many resources in your decision-making process. Balance data-driven insights with other factors like user feedback and personal judgment.</li>
+        </ul>
+        <strong>Remember:</strong> This tool aims to support, not dictate, your game development journey.
+    </p>
+    
+    <!-- REPORT HTML CODE END-->    
+    
+  </main>
+</section>
+  <footer>
+    <p>Site developed by <a href="https://github.com/antoplh/" style="color: white;">@antoplh</a> 2023</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="predictor.js"></script>
+</body>
+</html>

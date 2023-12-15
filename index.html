@@ -8,25 +8,25 @@
 <body>
   <header>
     <h1>Game Predictor</h1>
+    <p>Calculate metrics for estimated review number, downloads, revenue and cluster positive reviews distribution</p>
   </header>
   
   <main>
     <aside>
       <ul class="sidebar-menu">
         <li><a href="#" class="active">Predictor</a></li>
+        <li><a href="report.html">Report</a></li>
         <li><a href="notebook.html">Python Notebook</a></li>
-        <li><a href="#">Report</a></li>
       </ul>
     </aside>
     
     <section class="content">
         <h1>Game Form</h1>
-        <p>Fill in the main characteristics on the game you plan to make, it's advisable to check the "Report" section to understand how the model has been trained and how to interpret the results</p>
+        <p>Fill in the main characteristics on the game you plan to make, it's advisable to check the <a href="report.html">Report section</a> to understand how the model has been trained and how to interpret the results.</p>
         <form id="gameForm">
           <div class="form-row">
             <label for="gamePrice">Game Price:</label>
             <input type="number" id="gamePrice" name="gamePrice" min="0" step="0.01" placeholder="Enter game price (USD)" required autocomplete="off">
-            <p>*The model has been trained on games with prices less than 14 USD</p>
           </div>
 
         <div class="form-row">
@@ -76,7 +76,7 @@
   </main>
 
   <footer>
-    <p>Credits to [Your Name]</p>
+    <p>Site developed by <a href="https://github.com/antoplh/">@antoplh</a> 2023</p>
   </footer>
 
   <script src="script.js"></script>
